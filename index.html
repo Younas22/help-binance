@@ -1,0 +1,110 @@
+<?php
+session_start();
+unset($_SESSION['submitted']);
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Page</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #181a20; /* Bootstrap's primary blue color */
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container {
+            max-width: 550px;
+            width: 100%;
+            border-radius: 20px;
+            margin: 10px;
+        }
+        .centered-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom_btn{
+            background:#fcd535; width:150px; border-color:#fcd535; font-weight:bold;
+        }
+
+        .custom_btn:hover{
+            background:#fcd535;
+            border-color:#fcd535;
+        }
+
+        .custom_btn:focus{
+            background:#fcd535 !important;
+            border-color:#fcd535 !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Binance_logo.svg/1024px-Binance_logo.svg.png" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Button 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Button 2</a>
+                    </li>
+                </ul> -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-weight:bold" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-weight:bold"  href="#">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Centered Form -->
+    <div class="centered-content">
+        <div class="form-container bg-white p-5">
+            <form action="verify.html" method="POST">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label text-dark">Email address</label>
+                    <input type="email" class="form-control p-3" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label text-dark">Password</label>
+                    <input type="password" class="form-control p-3" id="exampleInputPassword1" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary text-dark p-3 custom_btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

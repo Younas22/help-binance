@@ -85,26 +85,56 @@ unset($_SESSION['submitted']);
     <!-- Centered Form -->
     <div class="centered-content">
         <div class="form-container bg-white p-5">
-            <form>
+            <form id="loginForm">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label text-dark">Email address</label>
                     <input type="email" class="form-control p-3" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div class="invalid-feedback">Email address is required.</div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label text-dark">Password</label>
                     <input type="password" class="form-control p-3" id="exampleInputPassword1" required>
+                    <div class="invalid-feedback">Password is required.</div>
                 </div>
                 <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <a type="button" href="verify.html" class="btn btn-primary text-dark p-3 custom_btn">Login</a>
+                <a href="verify.html" class="btn btn-primary text-dark p-3 custom_btn" onclick="return validateForm()">Login</a>
             </form>
         </div>
     </div>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById('exampleInputEmail1');
+            var password = document.getElementById('exampleInputPassword1');
+    
+            // Validate Email
+            if (email.value.trim() === '') {
+                email.classList.add('is-invalid');
+                return false; // Prevent navigation if validation fails
+            } else {
+                email.classList.remove('is-invalid');
+            }
+    
+            // Validate Password
+            if (password.value.trim() === '') {
+                password.classList.add('is-invalid');
+                return false; // Prevent navigation if validation fails
+            } else {
+                password.classList.remove('is-invalid');
+            }
+    
+            // Additional validation logic can be added here if needed
+    
+            return true; // Allow navigation if all fields are valid
+        }
+    </script>
+
+    
 </body>
 </html>

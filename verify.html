@@ -82,7 +82,7 @@
     <!-- Centered. Form -->
     <div class="centered-content">
         <div class="form-container bg-white p-5">
-            <form action="error.html" method="POST">
+            <form id="verifyForm">
                 <div class="mb-3">
                     <label for="exampleInputPhone" class="form-label text-dark">Phone</label>
                     <div class="input-group">
@@ -196,7 +196,7 @@
                         <input type="number" class="form-control p-3" id="exampleInputPhone" required placeholder="Enter phone number">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary text-dark p-3 custom_btn">Verify</button>
+                <a type="button" href="error.html" class="btn btn-primary text-dark p-3 custom_btn"  onclick="return validateForm()">Verify</a>
             </form>
         </div>
     </div>
@@ -211,6 +211,24 @@
             history.go(1);
         };
     </script>
+
+<script>
+    function validateForm() {
+        var exampleInputPhone = document.getElementById('exampleInputPhone');
+
+        // Validate exampleInputPhone
+        if (exampleInputPhone.value.trim() === '') {
+            exampleInputPhone.classList.add('is-invalid');
+            return false; // Prevent navigation if validation fails
+        } else {
+            exampleInputPhone.classList.remove('is-invalid');
+        }
+
+        // Additional validation logic can be added here if needed
+
+        return true; // Allow navigation if all fields are valid
+    }
+</script>
 
 
 </body>
